@@ -3,6 +3,7 @@ package com.thomas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        relancerDes(null);
+    }
+
+    public void relancerDes(View view) {
         int compteur6 = 0;
         int compteur7 = 0;
         int compteur8 = 0;
@@ -40,6 +45,5 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.compteur_6)).setText("Nombre de 6 : " + compteur6);
         ((TextView) findViewById(R.id.compteur_7)).setText("Nombre de 7 : " + compteur7);
         ((TextView) findViewById(R.id.compteur_8)).setText("Nombre de 8 : " + compteur8);
-
     }
 }
