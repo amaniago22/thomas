@@ -17,21 +17,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculPairImpair(View view) {
-        int de_1 = (int) (Math.random() * (6 - 1)) + 1;
-        int de_2 = (int) (Math.random() * (6 - 1)) + 1;
 
-        int somme = de_1 + de_2;
+        int nombre_pair = 0;
+        int nombre_impair = 0;
 
-        findViewById(R.id.compteur_7).setVisibility(View.GONE);
-        findViewById(R.id.compteur_8).setVisibility(View.GONE);
+        for (int i = 0; i < 60000; i++) {
+            int de_1 = (int) (Math.random() * (6 - 1)) + 1;
+            int de_2 = (int) (Math.random() * (6 - 1)) + 1;
+            int somme = de_1 + de_2;
 
-        if(somme % 2 == 1) {
-            ((TextView) findViewById(R.id.compteur_6)).setText("Nombre impair (" + somme + ")");
-        } else {
-            ((TextView) findViewById(R.id.compteur_6)).setText("Nombre pair (" + somme + ")");
+            if (somme % 2 == 1) {
+                nombre_impair++;
+            } else {
+                nombre_pair++;
+            }
         }
+        ((TextView) findViewById(R.id.impair)).setText("Nombre impair : (" + nombre_impair + ")");
+        ((TextView) findViewById(R.id.pair)).setText("Nombre pair : (" + nombre_pair + ")");
 
     }
+
 
 //    public void relancerDes(View view) {
 //        int compteur6 = 0;
@@ -61,5 +66,5 @@ public class MainActivity extends AppCompatActivity {
 //        ((TextView) findViewById(R.id.compteur_6)).setText("Nombre de 6 : " + compteur6);
 //        ((TextView) findViewById(R.id.compteur_7)).setText("Nombre de 7 : " + compteur7);
 //        ((TextView) findViewById(R.id.compteur_8)).setText("Nombre de 8 : " + compteur8);
-//    }
+//    } ((TextView) findViewById(R.id.compteur_6)).setText("Nombre impair (" + somme + ")");
 }

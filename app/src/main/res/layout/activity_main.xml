@@ -6,23 +6,17 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/compteur_6"
+        android:id="@+id/impair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="nombre impair" />
 
     <TextView
-        android:id="@+id/compteur_7"
+        android:id="@+id/pair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/compteur_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="nombre pair" />
 
     <Button
         android:layout_width="wrap_content"
