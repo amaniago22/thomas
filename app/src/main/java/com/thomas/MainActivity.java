@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    int nombre_pair = 0;
+    int nombre_impair = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,25 +21,33 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculPairImpair(View view) {
 
-        int nombre_pair = 0;
-        int nombre_impair = 0;
-
         for (int i = 0; i < 60000; i++) {
-            int de_1 = (int) (Math.random() * (6 - 1)) + 1;
-            int de_2 = (int) (Math.random() * (6 - 1)) + 1;
-            int somme = de_1 + de_2;
 
-            if (somme % 2 == 1) {
+            int somme = calculSommeDe2Des();
+            int moduloSomme = somme % 2;
+
+            if (moduloSomme == 1) {
                 nombre_impair++;
             } else {
                 nombre_pair++;
             }
         }
-        ((TextView) findViewById(R.id.impair)).setText("Nombre impair : (" + nombre_impair + ")");
-        ((TextView) findViewById(R.id.pair)).setText("Nombre pair : (" + nombre_pair + ")");
 
+        afficherResultats();
     }
 
+    private void afficherResultats() {
+        ((TextView) findViewById(R.id.impair)).setText("Compteur impair = " + nombre_impair);
+        ((TextView) findViewById(R.id.pair)).setText( "Compteur pair = " + nombre_pair);
+    }
+
+    private int calculSommeDe2Des() {
+        int de_1 = (int) (Math.random() * (12 - 1)) + 1;
+        int de_2 = (int) (Math.random() * (12 - 1)) + 1;
+        int somme = de_1 + de_2;
+
+        return somme;
+    }
 
 //    public void relancerDes(View view) {
 //        int compteur6 = 0;
@@ -47,10 +58,12 @@ public class MainActivity extends AppCompatActivity {
 //        int de_2 = 1;
 //
 //        for (int i = 0; i < 60000; i++) {
-//            de_1 = (int) (Math.random()*(6-1)) + 1;
-//            de_2 = (int) (Math.random()*(6-1)) + 1;
+////            de_1 = (int) (Math.random()*(6-1)) + 1;
+////            de_2 = (int) (Math.random()*(6-1)) + 1;
 //
-//            switch (de_1 + de_2) {
+//            int somme = calculSommeDe2Des();
+//
+//            switch (somme) {
 //                case 6 :
 //                    compteur6++;
 //                    break;
@@ -63,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        }
 //
-//        ((TextView) findViewById(R.id.compteur_6)).setText("Nombre de 6 : " + compteur6);
-//        ((TextView) findViewById(R.id.compteur_7)).setText("Nombre de 7 : " + compteur7);
-//        ((TextView) findViewById(R.id.compteur_8)).setText("Nombre de 8 : " + compteur8);
-//    } ((TextView) findViewById(R.id.compteur_6)).setText("Nombre impair (" + somme + ")");
+//        afficherResultats("Compteur de 6", compteur6, "Compteur de 7", compteur7);
+//    }
 }
