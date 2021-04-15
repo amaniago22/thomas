@@ -9,70 +9,77 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    String nbutilisateur = "";
-    ArrayList<String> listNbUtilisateur=new ArrayList<String>();
+
+    String nbutilisateur = "0";
+    ArrayList<String> listNbUtilisateur = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
+    public void cliqueBouton(String valeur) {
+        nbutilisateur = nbutilisateur + valeur;
+        ((TextView) findViewById(R.id.nombre_user)).setText(nbutilisateur);
+    }
+
+    public void cliqueBouton0(View view) {
+        cliqueBouton("0");
+    }
+
     public void cliqueBouton1(View view) {
-        nbutilisateur = nbutilisateur+"1";
+        cliqueBouton("1");
     }
 
     public void cliqueBouton2(View view) {
-        nbutilisateur = nbutilisateur+"2";
+        cliqueBouton("2");
     }
 
     public void cliqueBouton3(View view) {
-        nbutilisateur = nbutilisateur+"3";
+        cliqueBouton("3");
     }
 
     public void cliqueBouton4(View view) {
-        nbutilisateur = nbutilisateur+"4";
+        cliqueBouton("4");
     }
 
     public void cliqueBouton5(View view) {
-        nbutilisateur = nbutilisateur+"5";
+        cliqueBouton("5");
     }
 
     public void cliqueBouton6(View view) {
-        nbutilisateur = nbutilisateur+"6";
+        cliqueBouton("6");
     }
 
     public void cliqueBouton7(View view) {
-        nbutilisateur = nbutilisateur+"7";
+        cliqueBouton("7");
     }
 
     public void cliqueBouton8(View view) {
-        nbutilisateur = nbutilisateur+"8";
+        cliqueBouton("8");
     }
 
     public void cliqueBouton9(View view) {
-        nbutilisateur = nbutilisateur+"9";
+        cliqueBouton("9");
     }
 
     public void cliqueBoutonPlus(View view) {
-        if(nbutilisateur==""){
-            return;
-        }
         listNbUtilisateur.add(nbutilisateur);
-        // mettre le +
-        nbutilisateur="";
+        nbutilisateur = "0";
+        ((TextView) findViewById(R.id.nombre_user)).setText(nbutilisateur + " + ");
     }
 
     public void somme(View view) {
-        int resultat=0;
-        for(int i=0;i < listNbUtilisateur.size(); i++) {
-            int nombre=Integer.parseInt(listNbUtilisateur.get(i));
-            resultat=resultat+nombre;
+        int resultat = 0;
+        for (int i = 0; i < listNbUtilisateur.size(); i++) {
+            int nombre = Integer.parseInt(listNbUtilisateur.get(i));
+            resultat = resultat + nombre;
         }
-        if(nbutilisateur!="") {
-            int nombrecourant=Integer.parseInt(nbutilisateur);
-            resultat=resultat+nombrecourant;
-        }
-        //afficher résultat
+        int nombrecourant = Integer.parseInt(nbutilisateur);
+        resultat = resultat + nombrecourant;
+        ((TextView) findViewById(R.id.nombre_user)).setText(" = " + resultat);
+
     }
 
 }
