@@ -10,8 +10,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    String nbutilisateur = "0";
+    String nbutilisateur = "";
     ArrayList<String> listNbUtilisateur = new ArrayList<>();
+    private String currentText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void cliqueBouton(String valeur) {
         nbutilisateur = nbutilisateur + valeur;
-        ((TextView) findViewById(R.id.nombre_user)).setText(nbutilisateur);
+        ((TextView) findViewById(R.id.nombre_user)).setText(currentText + nbutilisateur);
     }
 
     public void cliqueBouton0(View view) {
@@ -65,9 +66,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cliqueBoutonPlus(View view) {
+        if(nbutilisateur.equals("")){
+            return;
+        }
         listNbUtilisateur.add(nbutilisateur);
-        nbutilisateur = "0";
-        ((TextView) findViewById(R.id.nombre_user)).setText(nbutilisateur + " + ");
+        nbutilisateur = "";
+        currentText = ((TextView) findViewById(R.id.nombre_user)).getText() + " + ";
+        ((TextView) findViewById(R.id.nombre_user)).setText(currentText);
     }
 
     public void somme(View view) {
@@ -76,10 +81,14 @@ public class MainActivity extends AppCompatActivity {
             int nombre = Integer.parseInt(listNbUtilisateur.get(i));
             resultat = resultat + nombre;
         }
-        int nombrecourant = Integer.parseInt(nbutilisateur);
-        resultat = resultat + nombrecourant;
-        ((TextView) findViewById(R.id.nombre_user)).setText(" = " + resultat);
-
+        if(!nbutilisateur.equals("")) {
+            int nombrecourant = Integer.parseInt(nbutilisateur);
+            resultat = resultat + nombrecourant;
+            ((TextView) findViewById(R.id.nombre_user)).setText(((TextView) findViewById(R.id.nombre_user)).getText() + " = " + resultat);
+        }
+        currentText = "";
+        nbutilisateur = "";
+        listNbUtilisateur.clear();
     }
 
 }
