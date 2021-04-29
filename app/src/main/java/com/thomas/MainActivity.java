@@ -75,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.nombre_user)).setText(currentText);
     }
 
+    public void cliqueBoutonMultiplier(View view) {
+        if(nbutilisateur.equals("")){
+            return;
+        }
+        listNbUtilisateur.add(nbutilisateur);
+        nbutilisateur = "";
+        currentText = ((TextView) findViewById(R.id.nombre_user)).getText() + " x ";
+        ((TextView) findViewById(R.id.nombre_user)).setText(currentText);
+    }
+
+
     public void somme(View view) {
         int resultat = 0;
         for (int i = 0; i < listNbUtilisateur.size(); i++) {
@@ -91,4 +102,19 @@ public class MainActivity extends AppCompatActivity {
         listNbUtilisateur.clear();
     }
 
+    public void produit(View view) {
+        int resultat = 0;
+        for (int i = 0; i < listNbUtilisateur.size(); i++) {
+            int nombre = Integer.parseInt(listNbUtilisateur.get(i));
+            resultat = resultat*nombre;
+        }
+        if(!nbutilisateur.equals("")) {
+            int nombrecourant = Integer.parseInt(nbutilisateur);
+            resultat = resultat*nombrecourant;
+            ((TextView) findViewById(R.id.nombre_user)).setText(((TextView) findViewById(R.id.nombre_user)).getText() + " = " + resultat);
+        }
+        currentText = "";
+        nbutilisateur = "";
+        listNbUtilisateur.clear();
+    }
 }
