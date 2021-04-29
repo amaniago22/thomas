@@ -90,8 +90,7 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1
-"
+                android:layout_weight="1"
                 android:onClick="cliqueBouton1"
                 android:text="1"
                 android:textSize="30sp" />
@@ -148,7 +147,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.75"
-                android:onClick="somme"
+                android:onClick="calcul"
                 android:text="="
                 android:textSize="30sp" />
         </LinearLayout>

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     String nbutilisateur = "";
-    ArrayList<String> listNbUtilisateur = new ArrayList<>();
+    ArrayList<Terme> listeTermes = new ArrayList<>();
     private String currentText = "";
 
     @Override
@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
         if(nbutilisateur.equals("")){
             return;
         }
-        listNbUtilisateur.add(nbutilisateur);
+        Terme termeCourant = new Terme(Integer.parseInt(nbutilisateur), "+");
+        listeTermes.add(termeCourant);
         nbutilisateur = "";
         currentText = ((TextView) findViewById(R.id.nombre_user)).getText() + " + ";
         ((TextView) findViewById(R.id.nombre_user)).setText(currentText);
@@ -79,42 +80,44 @@ public class MainActivity extends AppCompatActivity {
         if(nbutilisateur.equals("")){
             return;
         }
-        listNbUtilisateur.add(nbutilisateur);
+        Terme termeCourant = new Terme(Integer.parseInt(nbutilisateur), "x");
+        listeTermes.add(termeCourant);
         nbutilisateur = "";
         currentText = ((TextView) findViewById(R.id.nombre_user)).getText() + " x ";
         ((TextView) findViewById(R.id.nombre_user)).setText(currentText);
     }
 
 
-    public void somme(View view) {
+    public void calcul(View view) {
         int resultat = 0;
-        for (int i = 0; i < listNbUtilisateur.size(); i++) {
-            int nombre = Integer.parseInt(listNbUtilisateur.get(i));
-            resultat = resultat + nombre;
-        }
-        if(!nbutilisateur.equals("")) {
-            int nombrecourant = Integer.parseInt(nbutilisateur);
-            resultat = resultat + nombrecourant;
-            ((TextView) findViewById(R.id.nombre_user)).setText(((TextView) findViewById(R.id.nombre_user)).getText() + " = " + resultat);
-        }
-        currentText = "";
-        nbutilisateur = "";
-        listNbUtilisateur.clear();
-    }
+        String operationCourante = "";
 
-    public void produit(View view) {
-        int resultat = 0;
-        for (int i = 0; i < listNbUtilisateur.size(); i++) {
-            int nombre = Integer.parseInt(listNbUtilisateur.get(i));
-            resultat = resultat*nombre;
+        for (int i = 0; i < listeTermes.size(); i++) {
+            Terme termeCourant = listeTermes.get(i);
+            int valeur = termeCourant.getValeur();
+
+            if(operationCourante.equals("+")){
+                resultat = resultat + valeur;
+            } else if (operationCourante.equals("x")) {
+                resultat = resultat * valeur;
+            } else {
+                resultat = resultat + valeur;
+            }
+
+            operationCourante = termeCourant.getOperation();
         }
+
         if(!nbutilisateur.equals("")) {
-            int nombrecourant = Integer.parseInt(nbutilisateur);
-            resultat = resultat*nombrecourant;
+            int valeur = Integer.parseInt(nbutilisateur);
+            if(operationCourante.equals("+")){
+                resultat = resultat + valeur;
+            } else if (operationCourante.equals("x")) {
+                resultat = resultat * valeur;
+            }
             ((TextView) findViewById(R.id.nombre_user)).setText(((TextView) findViewById(R.id.nombre_user)).getText() + " = " + resultat);
         }
         currentText = "";
         nbutilisateur = "";
-        listNbUtilisateur.clear();
+        listeTermes.clear();
     }
 }
