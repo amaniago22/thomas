@@ -51,7 +51,6 @@ public class MorpionActivity extends AppCompatActivity {
          */
 
 
-
         //Cas joueur X gagne
         if (checkCombinaisons(casesJoueurX)) {
             new AlertDialog.Builder(this)
@@ -76,7 +75,11 @@ public class MorpionActivity extends AppCompatActivity {
         } else if (nbTour == 9) {
             new AlertDialog.Builder(this)
                     .setTitle("Égalité")
-                    .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        dialog.dismiss();
+                        MorpionActivity.this.recreate();
+                    })
+                    .setCancelable(false)
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
         }
@@ -98,21 +101,21 @@ public class MorpionActivity extends AppCompatActivity {
 
          */
 
-        if(casesJoueur.contains("_9") && casesJoueur.contains("_8") && casesJoueur.contains("_7")){
+        if (casesJoueur.contains("_9") && casesJoueur.contains("_8") && casesJoueur.contains("_7")) {
             return true;
-        } else if(casesJoueur.contains("_6") && casesJoueur.contains("_5") && casesJoueur.contains("_4")){
+        } else if (casesJoueur.contains("_6") && casesJoueur.contains("_5") && casesJoueur.contains("_4")) {
             return true;
-        } else if(casesJoueur.contains("_3") && casesJoueur.contains("_2") && casesJoueur.contains("_1")){
+        } else if (casesJoueur.contains("_3") && casesJoueur.contains("_2") && casesJoueur.contains("_1")) {
             return true;
-        } else if(casesJoueur.contains("_9") && casesJoueur.contains("_6") && casesJoueur.contains("_3")){
+        } else if (casesJoueur.contains("_9") && casesJoueur.contains("_6") && casesJoueur.contains("_3")) {
             return true;
-        } else if(casesJoueur.contains("_8") && casesJoueur.contains("_5") && casesJoueur.contains("_2")){
+        } else if (casesJoueur.contains("_8") && casesJoueur.contains("_5") && casesJoueur.contains("_2")) {
             return true;
-        } else if(casesJoueur.contains("_7") && casesJoueur.contains("_4") && casesJoueur.contains("_1")){
+        } else if (casesJoueur.contains("_7") && casesJoueur.contains("_4") && casesJoueur.contains("_1")) {
             return true;
-        } else if(casesJoueur.contains("_9") && casesJoueur.contains("_5") && casesJoueur.contains("_1")){
+        } else if (casesJoueur.contains("_9") && casesJoueur.contains("_5") && casesJoueur.contains("_1")) {
             return true;
-        } else if(casesJoueur.contains("_7") && casesJoueur.contains("_5") && casesJoueur.contains("_3")){
+        } else if (casesJoueur.contains("_7") && casesJoueur.contains("_5") && casesJoueur.contains("_3")) {
             return true;
         }
 
