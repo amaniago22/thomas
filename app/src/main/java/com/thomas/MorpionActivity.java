@@ -31,8 +31,6 @@ public class MorpionActivity extends AppCompatActivity {
 
             nbTour++;
 
-            detecterVainqueur();
-
             if (nbTour % 2 == 0) {
                 casesJoueurO.add(getResources().getResourceEntryName(view.getId()));
                 joueur = "X";
@@ -40,6 +38,8 @@ public class MorpionActivity extends AppCompatActivity {
                 casesJoueurX.add(getResources().getResourceEntryName(view.getId()));
                 joueur = "O";
             }
+
+            detecterVainqueur();
         }
     }
 
@@ -56,13 +56,21 @@ public class MorpionActivity extends AppCompatActivity {
         if (checkCombinaisons(casesJoueurX)) {
             new AlertDialog.Builder(this)
                     .setTitle("Joueur 1 gagne")
-                    .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        dialog.dismiss();
+                        MorpionActivity.this.recreate();
+                    })
+                    .setCancelable(false)
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
         } else if (checkCombinaisons(casesJoueurO)) {
             new AlertDialog.Builder(this)
+                    .setCancelable(false)
                     .setTitle("Joueur 2 gagne")
-                    .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        dialog.dismiss();
+                        MorpionActivity.this.recreate();
+                    })
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
         } else if (nbTour == 9) {
