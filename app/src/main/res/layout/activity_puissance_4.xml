@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    android:orientation="horizontal">
+
+    <include
+        android:id="@+id/column1"
+        layout="@layout/column" />
+
+    <include
+        android:id="@+id/column2"
+        layout="@layout/column" />
+
+    <include
+        android:id="@+id/column3"
+        layout="@layout/column" />
+
+    <include
+        android:id="@+id/column4"
+        layout="@layout/column" />
+
+    <include
+        android:id="@+id/column5"
+        layout="@layout/column" />
+
+    <include
+        android:id="@+id/column6"
+        layout="@layout/column" />
+
+    <include
+        android:id="@+id/column7"
+        layout="@layout/column" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tour Joueur"
+            android:layout_above="@+id/img_player_color"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <ImageView
+            android:id="@+id/img_player_color"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/circle_gray"
+            app:tint="@color/yellow" />
+
+    </RelativeLayout>
+
+</LinearLayout>

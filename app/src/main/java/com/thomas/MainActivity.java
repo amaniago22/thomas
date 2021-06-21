@@ -24,4 +24,8 @@ public class MainActivity extends AppCompatActivity {
     public void openMorpion(View view) {
         startActivity(new Intent(getApplicationContext(), MorpionActivity.class));
     }
+
+    public void openPuissance4(View view) {
+        startActivity(new Intent(getApplicationContext(), Puissance4Activity.class));
+    }
 }
