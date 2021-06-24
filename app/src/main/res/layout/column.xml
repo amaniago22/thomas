@@ -7,36 +7,11 @@
     android:layout_weight="1"
     android:gravity="center"
     android:orientation="vertical"
-    tools:showIn="@layout/activity_puissance_4"
-    android:onClick="clickColonne">
+    tools:showIn="@layout/activity_puissance_4">
 
 
     <ImageView
-        android:id="@+id/case1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:layout_weight="1"
-        android:src="@drawable/circle_gray" />
-
-    <ImageView
-        android:id="@+id/case2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:layout_weight="1"
-        android:src="@drawable/circle_gray" />
-
-    <ImageView
-        android:id="@+id/case3"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:layout_weight="1"
-        android:src="@drawable/circle_gray" />
-
-    <ImageView
-        android:id="@+id/case4"
+        android:id="@+id/case6"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_margin="4dp"
@@ -52,7 +27,31 @@
         android:src="@drawable/circle_gray" />
 
     <ImageView
-        android:id="@+id/case6"
+        android:id="@+id/case4"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:layout_weight="1"
+        android:src="@drawable/circle_gray" />
+
+    <ImageView
+        android:id="@+id/case3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:layout_weight="1"
+        android:src="@drawable/circle_gray" />
+
+    <ImageView
+        android:id="@+id/case2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:layout_weight="1"
+        android:src="@drawable/circle_gray" />
+
+    <ImageView
+        android:id="@+id/case1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_margin="4dp"
