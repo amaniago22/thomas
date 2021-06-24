@@ -26,7 +26,6 @@ public class Puissance4Activity extends AppCompatActivity {
     int colonne6 = 0;
     int colonne7 = 0;
 
-
     ArrayList<String> casesJoueur1 = new ArrayList<>();
     ArrayList<String> casesJoueur2 = new ArrayList<>();
 
@@ -68,25 +67,25 @@ public class Puissance4Activity extends AppCompatActivity {
         nbTour++;
 
         if (colonneNumber == 1) {
-            manageColonne(colonne1, colonneView);
+            colonne1 = manageColonne(colonne1, colonneView);
         }
         if (colonneNumber == 2) {
-            manageColonne(colonne2, colonneView);
+            colonne2 = manageColonne(colonne2, colonneView);
         }
         if (colonneNumber == 3) {
-            manageColonne(colonne3, colonneView);
+            colonne3 = manageColonne(colonne3, colonneView);
         }
         if (colonneNumber == 4) {
-            manageColonne(colonne4, colonneView);
+            colonne4 = manageColonne(colonne4, colonneView);
         }
         if (colonneNumber == 5) {
-            manageColonne(colonne5, colonneView);
+            colonne5 = manageColonne(colonne5, colonneView);
         }
         if (colonneNumber == 6) {
-            manageColonne(colonne6, colonneView);
+            colonne6 = manageColonne(colonne6, colonneView);
         }
         if (colonneNumber == 7) {
-            manageColonne(colonne7, colonneView);
+            colonne7 = manageColonne(colonne7, colonneView);
         }
 
         if (nbTour % 2 == 0) {
@@ -94,15 +93,19 @@ public class Puissance4Activity extends AppCompatActivity {
         } else {
             joueur = R.color.red;
         }
+
+        ((ImageView) findViewById(R.id.img_player_color)).setColorFilter(ContextCompat.getColor(getApplicationContext(), joueur), PorterDuff.Mode.SRC_IN);
     }
 
-    public void manageColonne(int colonneChoisi, View colonneView) {
+    public int manageColonne(int colonneChoisi, View colonneView) {
         if (colonneChoisi < 6) {
             colonneChoisi++;
             int caseId = getResources().getIdentifier("case" + colonneChoisi, "id", getApplicationContext().getPackageName());
             ImageView caseView = colonneView.findViewById(caseId);
             caseView.setColorFilter(ContextCompat.getColor(getApplicationContext(), joueur), PorterDuff.Mode.SRC_IN);
         }
+
+        return colonneChoisi;
     }
 
 }
