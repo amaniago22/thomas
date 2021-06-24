@@ -7,7 +7,9 @@
     android:layout_weight="1"
     android:gravity="center"
     android:orientation="vertical"
-    tools:showIn="@layout/activity_puissance_4">
+    tools:showIn="@layout/activity_puissance_4"
+    android:onClick="clickColonne">
+
 
     <ImageView
         android:id="@+id/case1"
