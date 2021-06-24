@@ -1,6 +1,7 @@
 package com.thomas;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -100,10 +101,8 @@ public class Puissance4Activity extends AppCompatActivity {
             colonneChoisi++;
             int caseId = getResources().getIdentifier("case" + colonneChoisi, "id", getApplicationContext().getPackageName());
             ImageView caseView = colonneView.findViewById(caseId);
-            caseView.setColorFilter(ContextCompat.getColor(getApplicationContext(), joueur), android.graphics.PorterDuff.Mode.MULTIPLY);
+            caseView.setColorFilter(ContextCompat.getColor(getApplicationContext(), joueur), PorterDuff.Mode.SRC_IN);
         }
-
-
     }
 
 }
