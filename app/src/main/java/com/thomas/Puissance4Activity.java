@@ -60,7 +60,17 @@ public class Puissance4Activity extends AppCompatActivity {
 
     public void clickColonne(String colonne) {
         nbTour++;
-// récupérer colonne
+
+        if (colonne.equals("1")) {
+            if (colonne1 < 6) {
+
+                //mettre le pion en n+1
+                colonne1++;
+            }
+        }
+
+
+
 
 
 // mettre le pion en fonction du joueur et de la colonne
